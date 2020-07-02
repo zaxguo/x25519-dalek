@@ -30,11 +30,12 @@ travis-ci = { repository = "dalek-cryptography/x25519-dalek", branch = "master"}
 features = ["nightly"]
 
 [dependencies]
-curve25519-dalek = { git = "https://github.com/novifinancial/curve25519-dalek.git", branch = "fiat2", version = "2", default-features = false }
-rand_core = { version = "0.5", default-features = false }
+curve25519-dalek = { git = "https://github.com/zaxguo/curve25519-dalek.git", branch = "fiat2", version = "2", default-features = false }
+rand_core = { git = "https://github.com/mesalock-linux/rand-sgx.git", tag = "sgx_1.1.2"}
 # `serde` is renamed to `our_serde` in order to avoid a name collision between
 # importing the serde dependency and enabling the curve25519-dalek/serde feature
-our_serde = { package = "serde", version = "1", default-features = false, optional = true, features = ["derive"] }
+our_serde = { package = "serde", git = "https://github.com/mesalock-linux/serde-sgx.git", tag = "sgx_1.1.2", feature = ["derive"], optional = true }
+#our_serde = { package = "serde", version = "1", default-features = false, optional = true, features = ["derive"] }
 zeroize = { version = "1", default-features = false, features = ["zeroize_derive"] }
 
 [dev-dependencies]
